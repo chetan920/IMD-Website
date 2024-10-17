@@ -8,10 +8,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendMail = async (email, message) => {
+const sendMail = async (email, message, name) => {
   await transporter.sendMail({
-    // to: "Bestcreativeyouth@gmail.com",
-    to:"hverma6137@gmail.com",
+    to: "Bestcreativeyouth@gmail.com",
     replyTo: email,
     subject: "New Query Received",
     text: `Query received from ${email}`,
@@ -23,6 +22,7 @@ const sendMail = async (email, message) => {
                   </div>
                   <div style="padding: 20px;">
                     <p style="font-size: 16px; color: #333;">
+                    <strong>Message from:</strong> <a  style="color: #4CAF50; text-decoration: none;">${name}</a>
                       <strong>Message from:</strong> <a href="mailto:${email}" style="color: #4CAF50; text-decoration: none;">${email}</a>
                     </p>
                     <p style="font-size: 16px; color: #333;">
