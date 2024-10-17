@@ -105,7 +105,7 @@ app.post("/imd/users/create", async (req, res) => {
   // await User.updateMany({}, { $unset: { number: "" } });
   const newUsers = req.body;
   // console.log(typeof newUsers?.number);
-  await sendMail(newUsers?.email, newUsers?.message);
+  await sendMail(newUsers?.email, newUsers?.message, newUsers?.name);
 
   const newUser = await User.create(newUsers);
   return res.send({
